@@ -1,5 +1,11 @@
 import { categories } from '../books';
+import { arrayToMap } from '../utils';
 
-export default (state = categories, action) => {
+console.log(categories)
+const defaultState = arrayToMap(categories);
+console.log(defaultState)
+
+export default (state = defaultState, action) => {
+
     return state
 }

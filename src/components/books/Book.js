@@ -2,20 +2,27 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 
-const Book = ({ book }) => 
+const Book = ({ book, cat }) => 
     <div>
         <h2>
             {book.title}
         </h2>
-        <p>Category: {book.categoryId}</p>
+        <p>Category: {cat[book.categoryId].title}</p>
         <p>Description: {book.description}</p>
     </div>
 
 
 Book.propTypes = {
-    books: PropTypes.array
+    book: PropTypes.object
+}
+
+Book.defaultProp = {
+    book: null
 }
 
 export default connect(
-    ({activeBook}) => ({book: activeBook})
+    ({activeBook, categoryBooks}) => ({
+        book: activeBook,
+        cat: categoryBooks
+    })
 )(Book)
