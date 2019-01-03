@@ -1,14 +1,11 @@
-import React, {Component} from 'react'; 
+import React from 'react'; 
+import Books from './books'
 
 
-class App extends Component {
-  render() {
-    return (
-          <h1>Hello React</h1>
-       
-    );
-  }
-}
+const App = () => 
 
+  <div className="container">
+    <Books/>
+  </div>
 
 export default App;
